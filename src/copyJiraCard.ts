@@ -1,17 +1,22 @@
-import { showHUD, Clipboard, showToast, Toast } from "@raycast/api";
+import { showHUD, Clipboard, getPreferenceValues } from "@raycast/api";
 import { getTabUrlFromChrome } from "./utils/getTabUrlFromChrome";
 
 export default async function () {
-  const url = await getTabUrlFromChrome();
-  if (!url.startsWith('https://shopline.atlassian.net/browse/')) {
-    return showToast({
-      style: Toast.Style.Failure,
-      title: "Not a Jira card",
-    });
+  try {
+    const { atlassianDomain } = getPreferenceValues();
+    const url = await getTabUrlFromChrome();
+
+    if (!url.startsWith(atlassianDomain)) {
+      throw new Error("Not a Jira card");
+    }
+
+    const cardName = url.split('/').pop();
+
+    await Clipboard.copy(`[${cardName}](${url})`);
+    await showHUD("Copied Card to clipboard");
+  } catch (error) {
+    if (error instanceof Error) {
+      await showHUD(`Error: ${error.message}`);
+    }
   }
-
-  const cardName = url.split('/').pop();
-
-  await Clipboard.copy(`[${cardName}](${url})`);
-  await showHUD("Copied Card to clipboard");
 }

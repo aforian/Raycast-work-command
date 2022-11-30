@@ -10,6 +10,24 @@
     "Developer Tools"
   ],
   "license": "MIT",
+  "preferences": [
+    {
+      "name": "atlassianDomain",
+      "type": "textfield",
+      "required": true,
+      "title": "Atlassian Domain",
+      "description": "Your Atlassian domain.",
+      "placeholder": "https://{COMPANY_NAME}.atlassian.net/"
+    },
+    {
+      "name": "bitbucketWorkspace",
+      "type": "textfield",
+      "required": true,
+      "title": "Bitbucket workspace",
+      "description": "Your bitbucket workspace",
+      "placeholder": "https://bitbucket.org/{WORKSPACE}"
+    }
+  ],
   "commands": [
     {
       "name": "copyJiraCard",
@@ -60,5 +78,5 @@
     "lint": "ray lint",
     "publish": "ray publish"
   },
-  "version": "1.1.0"
+  "version": "1.2.0"
 }
