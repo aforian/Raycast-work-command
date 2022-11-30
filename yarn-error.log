@@ -1,0 +1,99 @@
+Arguments: 
+  /Users/alexian/.nodenv/versions/16.13.1/bin/node /Users/alexian/.nodenv/versions/16.13.1/bin/yarn publish
+
+PATH: 
+  /Users/alexian/.nodenv/versions/16.13.1/bin:/opt/homebrew/Cellar/nodenv/1.4.0/libexec:/usr/local/homebrew/bin:/Users/alexian/.pyenv/shims:/Users/alexian/.pyenv/bin:./node_modules/.bin:/Users/alexian/.nodenv/shims:/Users/alexian/.rbenv/shims:/usr/local/opt/imagemagick@6/bin:/opt/homebrew/opt/mysql@5.7/bin:/usr/local/opt/mysql@5.7/bin:/Users/alexian/.rbenv/bin:/Users/alexian/bin:/usr/local/bin:/opt/homebrew/bin:/Users/alexian/bin:/usr/local/bin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/MacGPG2/bin:/Library/Apple/usr/bin
+
+Yarn version: 
+  1.22.17
+
+Node version: 
+  16.13.1
+
+Platform: 
+  darwin arm64
+
+Trace: 
+  Error: https://registry.yarnpkg.com/-/user/org.couchdb.user:alexian853: That email has already been registered.
+      at Request.params.callback [as _callback] (/Users/alexian/.nodenv/versions/16.13.1/lib/node_modules/yarn/lib/cli.js:67029:18)
+      at Request.self.callback (/Users/alexian/.nodenv/versions/16.13.1/lib/node_modules/yarn/lib/cli.js:140883:22)
+      at Request.emit (node:events:390:28)
+      at Request.<anonymous> (/Users/alexian/.nodenv/versions/16.13.1/lib/node_modules/yarn/lib/cli.js:141855:10)
+      at Request.emit (node:events:390:28)
+      at IncomingMessage.<anonymous> (/Users/alexian/.nodenv/versions/16.13.1/lib/node_modules/yarn/lib/cli.js:141777:12)
+      at Object.onceWrapper (node:events:509:28)
+      at IncomingMessage.emit (node:events:402:35)
+      at endReadableNT (node:internal/streams/readable:1343:12)
+      at processTicksAndRejections (node:internal/process/task_queues:83:21)
+
+npm manifest: 
+  {
+    "$schema": "https://www.raycast.com/schemas/extension.json",
+    "name": "work-commands",
+    "title": "Work Commands",
+    "description": "commands that help for work",
+    "owner": "my-shopline",
+    "icon": "shopline-icon.png",
+    "author": "alexian853",
+    "categories": [
+      "Developer Tools"
+    ],
+    "license": "MIT",
+    "commands": [
+      {
+        "name": "copyJiraCard",
+        "title": "Copy Jira Card Link",
+        "description": "Copy Jira Card Link",
+        "mode": "no-view"
+      },
+      {
+        "name": "copyPrReviewMessage",
+        "title": "Copy PR Review Message",
+        "description": "Copy PR Review Message",
+        "mode": "no-view",
+        "arguments": [
+          {
+            "name": "message",
+            "placeholder": "PR message",
+            "type": "text",
+            "required": false
+          }
+        ]
+      },
+      {
+        "name": "applyCodeStyle",
+        "title": "Apply Code Style",
+        "description": "Apply Code Style",
+        "mode": "no-view"
+      }
+    ],
+    "dependencies": {
+      "@raycast/api": "^1.35.2",
+      "escape-string-applescript": "^3.0.0",
+      "run-applescript": "^6.0.0"
+    },
+    "devDependencies": {
+      "@types/node": "~16.10.0",
+      "@types/react": "^17.0.28",
+      "@typescript-eslint/eslint-plugin": "^5.0.0",
+      "@typescript-eslint/parser": "^5.0.0",
+      "eslint": "^7.32.0",
+      "eslint-config-prettier": "^8.3.0",
+      "prettier": "^2.5.1",
+      "typescript": "^4.4.3"
+    },
+    "scripts": {
+      "build": "ray build -e dist",
+      "dev": "ray develop",
+      "fix-lint": "ray lint --fix",
+      "lint": "ray lint",
+      "publish": "ray publish"
+    },
+    "version": "1.1.0"
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

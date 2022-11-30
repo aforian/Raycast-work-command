@@ -1,0 +1,64 @@
+{
+  "$schema": "https://www.raycast.com/schemas/extension.json",
+  "name": "work-commands",
+  "title": "Work Commands",
+  "description": "commands that help for work",
+  "owner": "my-shopline",
+  "icon": "shopline-icon.png",
+  "author": "alexian853",
+  "categories": [
+    "Developer Tools"
+  ],
+  "license": "MIT",
+  "commands": [
+    {
+      "name": "copyJiraCard",
+      "title": "Copy Jira Card Link",
+      "description": "Copy current Jira page url from Chrome and convert to markdown format.",
+      "mode": "no-view"
+    },
+    {
+      "name": "copyPrReviewMessage",
+      "title": "Copy PR Review Message",
+      "description": "Copy current Pull Request page url and related Jira page url from Chrome and convert to markdown format with template text.",
+      "mode": "no-view",
+      "arguments": [
+        {
+          "name": "message",
+          "placeholder": "PR message",
+          "type": "text",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "applyCodeStyle",
+      "title": "Apply Code Style",
+      "description": "Apple code-style format in varient application or platform.",
+      "mode": "no-view"
+    }
+  ],
+  "dependencies": {
+    "@raycast/api": "^1.35.2",
+    "escape-string-applescript": "^3.0.0",
+    "run-applescript": "^6.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "~16.10.0",
+    "@types/react": "^17.0.28",
+    "@typescript-eslint/eslint-plugin": "^5.0.0",
+    "@typescript-eslint/parser": "^5.0.0",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
+    "prettier": "^2.5.1",
+    "typescript": "^4.4.3"
+  },
+  "scripts": {
+    "build": "ray build -e dist",
+    "dev": "ray develop",
+    "fix-lint": "ray lint --fix",
+    "lint": "ray lint",
+    "publish": "ray publish"
+  },
+  "version": "1.1.0"
+}
