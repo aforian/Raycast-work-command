@@ -1,5 +1,9 @@
 # Work Commands
 
+## [Update] v1.2.1
+
+- Fix "Apply Code Style" with Chinese input method at Atlassian and Bitbucket
+
 ## [Update] v1.2.0
 
 - Update "Copy Jira Card Link" with preferences domain

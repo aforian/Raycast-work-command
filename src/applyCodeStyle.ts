@@ -1,6 +1,6 @@
 import { showHUD } from "@raycast/api";
 import { runAppleScript } from "run-applescript";
-import { getTabUrlFromChrome } from "./utils/getTabUrlFromChrome";
+import { getTabUrlFromChrome, runScriptFromActiveTab } from "./utils/getTabUrlFromChrome";
 
 async function getCurrentActiveApp(): Promise<string> {
   return runAppleScript(`
@@ -33,22 +33,32 @@ export default async function Command() {
     case 'Slack': {
       return keyStorkeApp(
         'Slack',
-        'keystroke "c" using {command down, shift down}',
+        'key code 8 using {command down, shift down}', // 'C'
       );
     }
     case 'Google Chrome': {
       const url = await getTabUrlFromChrome();
       if (url.includes('notion')) {
-        return keyStorkeApp(
+        keyStorkeApp(
           'Chrome',
-          'keystroke "e" using {command down}',
+          'key code 14 using {command down}', // 'E'
         );
+        break;
       }
       else if ((url.match(/atlassian|bitbucket/)?.length || 0) > 0) {
-        return keyStorkeApp(
-          'Chrome',
-          'keystroke "m" using {command down, shift down}',
-        );
+        runScriptFromActiveTab(`
+          document.activeElement.dispatchEvent(
+            new KeyboardEvent(
+              'keydown',
+              {
+                key: 'm',
+                shiftKey: true,
+                metaKey: true,
+              },
+            ),
+          )
+        `);
+        break;
       }
       else {
         return showHUD('Invalid command for this website');

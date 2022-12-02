@@ -19,3 +19,11 @@ export async function getTextFromActiveTab(jsCode: string): Promise<string>  {
     return _text
   `);
 }
+
+export async function runScriptFromActiveTab(script: string): Promise<void>  {
+  await runAppleScript(`
+    tell application "Google Chrome" to tell active tab of first window
+      execute javascript "${script}"
+    end tell
+  `);
+}
