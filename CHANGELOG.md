@@ -1,15 +1,28 @@
 # Work Commands
 
-## [Update] v1.2.1
+## v1.3.0 - 2022-01-23
+
+### Updated
+
+- Update "Copy Jira Card Link" with HTML format
+- Update "Copy PR Review Message" with HTML format
+
+## v1.2.1
+
+### Fixed
 
 - Fix "Apply Code Style" with Chinese input method at Atlassian and Bitbucket
 
-## [Update] v1.2.0
+## v1.2.0
+
+### Updated
 
 - Update "Copy Jira Card Link" with preferences domain
 - Update "Copy PR Review Message" with preferences workspace
 
 ## [Initial Version] - 2022-11-30
+
+### Added
 
 - Add "Copy Jira Card Link"
 - Add "Copy PR Review Message"

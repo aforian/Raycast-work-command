@@ -1,6 +1,8 @@
 import { showHUD, Clipboard, getPreferenceValues } from "@raycast/api";
+import escapeStringAppleScript from "escape-string-applescript";
+
 import { getTabUrlFromChrome, getTextFromActiveTab } from "./utils/getTabUrlFromChrome";
-import escapeStringAppleScript from 'escape-string-applescript';
+import { buildLink } from "./utils/buildLink";
 
 interface CommandArguments {
   message: string;
@@ -25,11 +27,15 @@ export default async function Command(props: { arguments: CommandArguments }) {
     const cardName = await getTextFromActiveTab(cartNameScript);
     const cardLink = await getTextFromActiveTab(cartLinkScript);
 
-    const cardContent = (!isMissing(cardName) && !isMissing(cardLink)) ? `[${cardName}](${cardLink})` : '';
+    const cardContent = (!isMissing(cardName) && !isMissing(cardLink)) ? buildLink(cardLink, cardName) : '';
     const messageContent = message.replace(' ', '') !== '' ? `${message}，` : '';
 
-    await Clipboard.copy(`Hi team，${messageContent}再麻煩大家幫看 :pray:
-${cardContent}${cardContent ? ' | ' : ''}[PR](${PrUrl})`);
+    await Clipboard.copy({
+      html: `
+        Hi team，${messageContent}再麻煩大家幫看 :pray: <br/>
+        ${cardContent}${cardContent ? ' | ' : ''}${buildLink(PrUrl, 'PR')}
+      `,
+    });
     await showHUD("PR review message copied");
 
   } catch (error) {

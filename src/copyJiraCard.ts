@@ -1,5 +1,7 @@
 import { showHUD, Clipboard, getPreferenceValues } from "@raycast/api";
-import { getTabUrlFromChrome } from "./utils/getTabUrlFromChrome";
+import { buildLink } from "./utils/buildLink";
+
+import { getTabUrlFromChrome } from "./utils/getTabUrlFromChrome"
 
 export default async function () {
   try {
@@ -12,7 +14,7 @@ export default async function () {
 
     const cardName = url.split('/').pop();
 
-    await Clipboard.copy(`[${cardName}](${url})`);
+    await Clipboard.copy({ html: buildLink(url, cardName) });
     await showHUD("Copied Card to clipboard");
   } catch (error) {
     if (error instanceof Error) {
