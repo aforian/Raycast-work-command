@@ -3,7 +3,7 @@ import { buildLink } from "./utils/buildLink";
 
 import { getTabUrlFromChrome } from "./utils/getTabUrlFromChrome"
 
-export default async function () {
+export default async function copyJiraCard() {
   try {
     const { atlassianDomain } = getPreferenceValues();
     const url = await getTabUrlFromChrome();

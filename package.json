@@ -36,6 +36,12 @@
       "mode": "no-view"
     },
     {
+      "name": "copyJiraCardWithTitle",
+      "title": "Copy Jira Card Link With Title",
+      "description": "Copy current Jira page url and title from Chrome and convert to markdown format.",
+      "mode": "no-view"
+    },
+    {
       "name": "copyPrReviewMessage",
       "title": "Copy PR Review Message",
       "description": "Copy current Pull Request page url and related Jira page url from Chrome and convert to markdown format with template text.",
