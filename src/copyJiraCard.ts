@@ -1,7 +1,7 @@
-import { showHUD, Clipboard, getPreferenceValues } from "@raycast/api";
-import { buildLink } from "./utils/buildLink";
+import { showHUD, Clipboard, getPreferenceValues } from '@raycast/api';
+import { buildLink } from './utils/buildLink';
 
-import { getTabUrlFromChrome } from "./utils/getTabUrlFromChrome"
+import { getTabUrlFromChrome } from './utils/getTabUrlFromChrome';
 
 export default async function copyJiraCard() {
   try {
@@ -9,13 +9,13 @@ export default async function copyJiraCard() {
     const url = await getTabUrlFromChrome();
 
     if (!url.startsWith(atlassianDomain)) {
-      throw new Error("Not a Jira card");
+      throw new Error('Not a Jira card');
     }
 
     const cardName = url.split('/').pop();
 
     await Clipboard.copy({ html: buildLink(url, cardName) });
-    await showHUD("Copied Card to clipboard");
+    await showHUD('Copied Card to clipboard');
   } catch (error) {
     if (error instanceof Error) {
       await showHUD(`Error: ${error.message}`);

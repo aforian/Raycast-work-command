@@ -1,6 +1,6 @@
-import { showHUD } from "@raycast/api";
-import { runAppleScript } from "run-applescript";
-import { getTabUrlFromChrome } from "./utils/getTabUrlFromChrome";
+import { showHUD } from '@raycast/api';
+import { runAppleScript } from 'run-applescript';
+import { getTabUrlFromChrome } from './utils/getTabUrlFromChrome';
 
 async function getCurrentActiveApp(): Promise<string> {
   return runAppleScript(`
@@ -23,17 +23,17 @@ async function keyStrokeApp(appName: string, keyStroke: string) {
     tell application "System Events"
       ${keyStroke}
     end tell
-  `)
+  `);
 }
 
 export default async function applyCodeStyle() {
   const activeAppName = await getCurrentActiveApp();
 
-  switch(activeAppName) {
+  switch (activeAppName) {
     case 'Slack': {
       return keyStrokeApp(
         'Slack',
-        'key code 8 using {command down, shift down}', // 'C'
+        'key code 8 using {command down, shift down}' // 'C'
       );
     }
     case 'Google Chrome': {
@@ -41,18 +41,16 @@ export default async function applyCodeStyle() {
       if (url.includes('notion')) {
         return keyStrokeApp(
           'Chrome',
-          'key code 14 using {command down}', // 'E'
+          'key code 14 using {command down}' // 'E'
         );
       }
-      else if ((url.match(/atlassian|bitbucket/)?.length ?? 0) > 0) {
+      if ((url.match(/atlassian|bitbucket/)?.length ?? 0) > 0) {
         return keyStrokeApp(
           'Chrome',
-          'key code 46 using {command down, shift down}', // 'M'
+          'key code 46 using {command down, shift down}' // 'M'
         );
       }
-      else {
-        return showHUD('Invalid command for this website');
-      }
+      return showHUD('Invalid command for this website');
     }
     default:
       return showHUD('Invalid command for this application');

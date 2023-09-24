@@ -1,6 +1,6 @@
-import { showHUD, Clipboard, getPreferenceValues } from "@raycast/api";
-import { buildLink } from "./utils/buildLink";
-import { getTabUrlFromChrome, getTextFromActiveTab } from "./utils/getTabUrlFromChrome";
+import { showHUD, Clipboard, getPreferenceValues } from '@raycast/api';
+import { buildLink } from './utils/buildLink';
+import { getTabUrlFromChrome, getTextFromActiveTab } from './utils/getTabUrlFromChrome';
 
 function getPageTitle() {
   return getTextFromActiveTab(`
