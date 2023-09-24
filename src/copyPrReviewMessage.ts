@@ -12,7 +12,7 @@ function isMissing(content: string) {
   return content === 'missing value';
 }
 
-export default async function Command(props: { arguments: CommandArguments }) {
+export default async function copyPrReviewMessage(props: { arguments: CommandArguments }) {
   try {
     const { bitbucketWorkspace } = getPreferenceValues();
     const { message } = props.arguments;

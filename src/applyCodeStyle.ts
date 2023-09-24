@@ -1,6 +1,6 @@
 import { showHUD } from "@raycast/api";
 import { runAppleScript } from "run-applescript";
-import { getTabUrlFromChrome, runScriptFromActiveTab } from "./utils/getTabUrlFromChrome";
+import { getTabUrlFromChrome } from "./utils/getTabUrlFromChrome";
 
 async function getCurrentActiveApp(): Promise<string> {
   return runAppleScript(`
@@ -26,7 +26,7 @@ async function keyStrokeApp(appName: string, keyStroke: string) {
   `)
 }
 
-export default async function Command() {
+export default async function applyCodeStyle() {
   const activeAppName = await getCurrentActiveApp();
 
   switch(activeAppName) {
@@ -39,26 +39,16 @@ export default async function Command() {
     case 'Google Chrome': {
       const url = await getTabUrlFromChrome();
       if (url.includes('notion')) {
-        keyStrokeApp(
+        return keyStrokeApp(
           'Chrome',
           'key code 14 using {command down}', // 'E'
         );
-        break;
       }
-      else if ((url.match(/atlassian|bitbucket/)?.length || 0) > 0) {
-        runScriptFromActiveTab(`
-          document.activeElement.dispatchEvent(
-            new KeyboardEvent(
-              'keydown',
-              {
-                key: 'm',
-                shiftKey: true,
-                metaKey: true,
-              },
-            ),
-          )
-        `);
-        break;
+      else if ((url.match(/atlassian|bitbucket/)?.length ?? 0) > 0) {
+        return keyStrokeApp(
+          'Chrome',
+          'key code 46 using {command down, shift down}', // 'M'
+        );
       }
       else {
         return showHUD('Invalid command for this website');
