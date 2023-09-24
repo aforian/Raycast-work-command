@@ -8,6 +8,11 @@ Copy current Jira page url from Chrome and convert to markdown format.
 ex.
 [AB-12345](https://COMPANY_NAME.atlassian.net/browse/AB-12345)
 
+## Copy Jira Card Link With Title
+
+Copy current Jira page url and title from Chrome and convert to markdown format.
+[AB-12345 Enhancement XXX](https://COMPANY_NAME.atlassian.net/browse/AB-12345)
+
 ## Copy PR Review Message
 
 Copy current Pull Request page url and related Jira page url from Chrome and convert to markdown format with template text.
