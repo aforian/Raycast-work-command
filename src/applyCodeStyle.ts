@@ -17,7 +17,7 @@ async function getCurrentActiveApp(): Promise<string> {
   `);
 }
 
-async function keyStorkeApp(appName: string, keyStroke: string) {
+async function keyStrokeApp(appName: string, keyStroke: string) {
   return runAppleScript(`
     tell application "${appName}" to activate
     tell application "System Events"
@@ -31,7 +31,7 @@ export default async function Command() {
 
   switch(activeAppName) {
     case 'Slack': {
-      return keyStorkeApp(
+      return keyStrokeApp(
         'Slack',
         'key code 8 using {command down, shift down}', // 'C'
       );
@@ -39,7 +39,7 @@ export default async function Command() {
     case 'Google Chrome': {
       const url = await getTabUrlFromChrome();
       if (url.includes('notion')) {
-        keyStorkeApp(
+        keyStrokeApp(
           'Chrome',
           'key code 14 using {command down}', // 'E'
         );
