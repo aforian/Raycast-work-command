@@ -1,5 +1,15 @@
 # Work Commands
 
+## v1.4.0 - 2023-09-24
+
+### Added
+
+- Add "Copy Jira Card Link With Title" for specific use case
+
+### Updated
+
+- Update "Apply Code Style" implementation
+
 ## v1.3.0 - 2022-01-23
 
 ### Updated
