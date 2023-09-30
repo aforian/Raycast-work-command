@@ -8,7 +8,7 @@ export default async function copyJiraCard() {
     const { atlassianDomain } = getPreferenceValues();
     const url = await getTabUrlFromChrome();
 
-    if (!url.startsWith(atlassianDomain)) {
+    if (!url.startsWith(atlassianDomain) || !url.includes('/browse/')) {
       throw new Error('Not a Jira card');
     }
 

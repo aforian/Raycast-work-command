@@ -14,7 +14,7 @@ export default async function copyJiraCardWithTitle() {
   let pageTitle = await getPageTitle();
   let toastText = 'Copied Link to clipboard';
 
-  if (url.startsWith(atlassianDomain)) {
+  if (url.startsWith(atlassianDomain) && !url.includes('wiki')) {
     const cardName = url.split('/').pop();
 
     pageTitle = `${cardName} ${pageTitle}`;

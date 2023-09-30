@@ -1,5 +1,12 @@
 # Work Commands
 
+## v1.4.1 - 2023-09-30
+
+### Fixed
+
+- fix "Copy Jira Card Link With Title" in Confluence page
+- fix "Copy Jira Card Link" in Confluence page
+
 ## v1.4.0 - 2023-09-24
 
 ### Added
