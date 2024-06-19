@@ -1,6 +1,6 @@
 import { showHUD } from '@raycast/api';
 import { runAppleScript } from 'run-applescript';
-import { getTabUrlFromChrome } from './utils/getTabUrlFromChrome';
+import { getActiveTabUrl } from './utils/getActiveTabUrl';
 
 async function getCurrentActiveApp(): Promise<string> {
   return runAppleScript(`
@@ -36,15 +36,22 @@ export default async function applyCodeStyle() {
         'key code 8 using {command down, shift down}' // 'C'
       );
     }
+    case 'Arc':
     case 'Google Chrome': {
-      const url = await getTabUrlFromChrome();
-      if (url.includes('notion')) {
+      const url = await getActiveTabUrl(activeAppName);
+
+      if (!url) {
+        return showHUD('Url not found');
+      }
+
+      if (url.href.includes('notion')) {
         return keyStrokeApp(
           'Chrome',
           'key code 14 using {command down}' // 'E'
         );
       }
-      if ((url.match(/atlassian|bitbucket/)?.length ?? 0) > 0) {
+
+      if ((url.href.match(/atlassian|bitbucket/)?.length ?? 0) > 0) {
         return keyStrokeApp(
           'Chrome',
           'key code 46 using {command down, shift down}' // 'M'
