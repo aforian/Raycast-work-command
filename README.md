@@ -22,9 +22,9 @@ Hi team，{Text}，再麻煩大家幫看 :pray:
 
 ## Apply Code Style
 
-Apple code-style format in varient application or platform.
-inlucdes:
+Apple code-style format in variant application or platform.
+includes:
 
-- Notion in Chrome
-- Jira/Bitbucket/Confluence in Chrome
+- Notion in browser
+- Jira/Bitbucket/Confluence in browser
 - Slack

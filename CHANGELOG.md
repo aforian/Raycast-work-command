@@ -1,5 +1,14 @@
 # Work Commands
 
+## v1.5.0 - 2024-06-19
+
+- Add Support to Arc
+
+### Fixed
+
+- fix "Copy Jira Card Link With Title" in Confluence page
+- fix "Copy Jira Card Link" in Confluence page
+
 ## v1.4.1 - 2023-09-30
 
 ### Fixed
